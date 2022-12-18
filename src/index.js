@@ -2,38 +2,32 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import './index.css';
 
-// stateless functional component
-// always return JSX  
-
+// set variables
+// const author = 'Amelia Hepworth';  
+// const title = 'I Love You to the Moon and Back';
+// const img = 'https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg';
 function BookList() {
   return (
     <section className="booklist">
-      <Book/>
-      <Book/>
-      <Book/>
-      <Book/>
+      <Book 
+      author='Amelia Hepworth' 
+      title='I Love You to the Moon and Back' 
+      img='https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg'
+      />
+      <Book />
     </section>
   )
 }
 
-const Book = () => {
- return <article className='book '>
-  <Image/>
-  <Title/>
-  <Author/>
+
+const Book = (props) => {
+ return (
+  <article className='book'>
+  <img src={props.img} alt="" />
+  <h1>{props.title}</h1>
+  <h4>{props.author}</h4>
   </article>
-}
-
-const Image = () => {
- return <img src="https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg" alt="" />
-}
-
-const Title = () => {
- return <h1>I Love You to the Moon and Back</h1>
-}
-
-const Author = () => {
- return <h4>Amelia Hepworth</h4>
+ )
 }
 
 ReactDom.render(<BookList/>, document.getElementById('root'));
